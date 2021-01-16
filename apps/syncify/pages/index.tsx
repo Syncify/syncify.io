@@ -1,7 +1,5 @@
 import React from "react";
 
-import styles from "./index.module.less";
-
 import {
   GithubOutlined,
   LinkedinOutlined,
@@ -10,11 +8,7 @@ import {
 } from "@ant-design/icons";
 export function Index() {
   const year = new Date().getFullYear();
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./index.less file.
-   */
+
   return (
     <div
       style={{
