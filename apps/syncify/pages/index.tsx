@@ -105,7 +105,7 @@ export function Index() {
             <div className="shadowbox"></div>
           </div>
         </div>
-        <a className="getintouch" href="mailto:hello@contentsync.com">
+        <a className="getintouch" href="mailto:hello@syncify.io">
           Get In Touch <SendOutlined />
         </a>
         <div>
