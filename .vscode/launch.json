@@ -1,0 +1,15 @@
+{
+    "name": "debug-jest-lib",
+     "type": "node",
+     "request": "launch",
+     "program": "${workspaceFolder}/node_modules/@angular/cli/bin/ng",
+     "args": [
+       "test",
+       "syncify",
+       "--codeCoverage=false",
+       "--testNamePattern=PageLayout",
+       "--testFile=${workspaceFolder}/apps/dashboard/components/page-layout.tsx"
+     ],
+     "cwd": "${workspaceFolder}",
+     "console": "internalConsole"
+   }

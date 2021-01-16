@@ -1,0 +1,57 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+          node-version: [12.x]
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        with:
+          fetch-depth: 0
+
+      - run: git fetch --no-tags --prune --depth=5 origin master
+
+      - name: Cache  💾
+        uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}
+
+      - name: "[NODE] Install Node ${{ matrix.node-version }}"
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # NX Yarn install with cache
+      - name: "[YARN INSTALL] NX Projects"
+        run: yarn install --frozen-lockfile
+
+      - name: "[NX][EXPORT] Export Apps"
+        run: NODE_ENV=production yarn run affected:export --prod --base origin/master~1
+
+      - name: "[CHECK] syncify"
+        id: check_website_built
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "dist/apps/syncify/package.json"
+
+      - name: "Create empty .nojekyll file for Github Pages support"
+        if: steps.check_website_built.outputs.files_exists == 'true'
+        run: touch dist/apps/syncify/exported/.nojekyll
+
+      - name: Deploy 🚀
+        if: steps.check_website_built.outputs.files_exists == 'true'
+        uses: JamesIves/github-pages-deploy-action@3.6.2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: dist/apps/syncify/exported # The folder the action should deploy.
+          CLEAN: true # Automatically remove deleted files from the deploy branch
