@@ -65,8 +65,8 @@ export function Index() {
             </div>
             <div className="body">
               ContentSync connects content between{" "}
-              <strong>Design Applications</strong> and
-              <strong>Spreadsheets</strong> to help product teams perfect their
+              <strong>Design Applications</strong> and&nbsp;
+              <strong>Spreadsheets</strong> to help product teams create smarter
               content.
               <div className="product-link">
                 <a href="https://www.contentsync.com" target="_blank">
@@ -75,41 +75,66 @@ export function Index() {
               </div>
             </div>
           </div>
+          <div className="product" style={{ width: 290 }}>
+            <div className="title">
+              <div
+                style={{
+                  paddingLeft: 6,
+                  paddingTop: 5,
+                  fontWeight: 900,
+                  color: "#2892FF",
+                }}
+              >
+                Syncify
+              </div>
+            </div>
+            <div className="body">
+              <strong>Work with us</strong> to create products to streamline
+              your business and workflow.
+              <div className="product-link">
+                <a href="mailto:hello@syncify.io" target="_blank">
+                  Contact Us <SendOutlined />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="footer">
-        <div className="people">
-          <div>
-            <img src="girl_1.png" />
-            <div className="shadow"></div>
-            <div className="shadowbox"></div>
+      <div className="footer-container">
+        <div className="footer">
+          <div className="people">
+            <div>
+              <img src="girl_1.png" />
+              <div className="shadow"></div>
+              <div className="shadowbox"></div>
+            </div>
+            <div>
+              <img src="guy_1.png" />
+              <div className="shadow"></div>
+              <div className="shadowbox"></div>
+            </div>
+            <div>
+              <img src="girl_2.png" />
+              <div className="shadow"></div>
+              <div className="shadowbox"></div>
+            </div>
+            <div>
+              <img src="girl_3.png" />
+              <div className="shadow"></div>
+              <div className="shadowbox"></div>
+            </div>
+            <div>
+              <img src="guy_2.png" />
+              <div className="shadow"></div>
+              <div className="shadowbox"></div>
+            </div>
           </div>
+          <a className="getintouch" href="mailto:hello@syncify.io">
+            Get In Touch <SendOutlined />
+          </a>
           <div>
-            <img src="guy_1.png" />
-            <div className="shadow"></div>
-            <div className="shadowbox"></div>
+            <small>&copy; {year} Syncify, Inc.</small>
           </div>
-          <div>
-            <img src="girl_2.png" />
-            <div className="shadow"></div>
-            <div className="shadowbox"></div>
-          </div>
-          <div>
-            <img src="girl_3.png" />
-            <div className="shadow"></div>
-            <div className="shadowbox"></div>
-          </div>
-          <div>
-            <img src="guy_2.png" />
-            <div className="shadow"></div>
-            <div className="shadowbox"></div>
-          </div>
-        </div>
-        <a className="getintouch" href="mailto:hello@syncify.io">
-          Get In Touch <SendOutlined />
-        </a>
-        <div>
-          <small>&copy; {year} Syncify, Inc.</small>
         </div>
       </div>
     </div>
